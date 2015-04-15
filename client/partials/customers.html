@@ -1,0 +1,27 @@
+<div ng-controller="customersController">
+	<p>Search: <input type="text" ng-model="filter_name"></p>
+	<!-- <p ng-show='errors'>{{errors}}</p> -->
+	<table>
+		<thead>
+			<tr>
+				<th>Customer Name</th>
+				<th>Created Date</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="customer in customers | filter: filter_name | orderBy: 'date' - 1 ">
+				<td>{{customer.name}}</td>
+				<td>{{customer.date | date:format:LongDate}}</td>
+				<td><input type="submit" value="Remove" ng-click="removeCustomer(customer)"></td>
+			</tr>
+		</tbody>
+	</table>
+	<p>Add a New Customer</p>
+	<form ng-submit='addCustomer()'>
+		<p>Customer Name: <input type="text" ng-model="newCustomer.name">
+		<input type="hidden" ng-model="newCustomer.date"> 
+		<input type="submit" value="Add"></p>
+		<!-- <p ng-bind="error"></p> -->
+	</form>
+</div>
