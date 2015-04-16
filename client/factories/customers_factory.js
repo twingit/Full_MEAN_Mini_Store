@@ -1,4 +1,4 @@
-miniStoreApp.factory("customerFactory", function($http) {
+miniStoreApp.factory("customersFactory", function($http) {
 
 	var factory = {};
 	var customers = [];

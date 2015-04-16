@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-// Create out customerSchema
+// Create our customerSchema
 var customerSchema = new mongoose.Schema({
 	name: String,
 	date: {type: Date, default: Date.now}

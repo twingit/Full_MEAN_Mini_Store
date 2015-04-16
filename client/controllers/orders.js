@@ -1,35 +1,37 @@
-miniStoreApp.controller("ordersController", function($scope, orderFactory, customerFactory) {
+miniStoreApp.controller("ordersController", function($scope, ordersFactory, customersFactory, productsFactory) {
 	
-	customerFactory.getCustomers(function(data) {
+	ordersFactory.getOrders(function(data) {
+		$scope.orders = data;
+	})
+
+	customersFactory.getCustomers(function(data) {
 		$scope.customers = data;
 	})
 
-	orderFactory.getOrders(function(data) {
-		$scope.orders = data;
+	productsFactory.getProducts(function(data) {
+		$scope.products = data;
 	})
 
 	$scope.addOrder = function() {
 
-		orderFactory.addOrder($scope.newOrder, function() {
+		ordersFactory.addOrder($scope.newOrder, function() {
 
-			console.log('ggggggg', $scope.newOrder);
-			orderFactory.getOrders(function(data) {
+			ordersFactory.getOrders(function(data) {
 				$scope.orders = data;
-
+				$scope.newOrder = {};
 			})
 
-			$scope.newOrder = {};
 		})
-
+			
 	}
 
 	$scope.removeOrder = function(id) {
 
-		orderFactory.removeOrder(id, function(data) {
+		ordersFactory.removeOrder(id, function(data) {
 
 		})
 
-		orderFactory.getOrders(function(data) {
+		ordersFactory.getOrders(function(data) {
 				$scope.orders = data;
 		})
 

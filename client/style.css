@@ -1,0 +1,28 @@
+img {
+	max-width:100%;
+	height:auto;
+}
+
+#add_product {
+	/*border: 1px solid black;*/
+	box-sizing:border-box;
+	display: inline-block;
+	vertical-align: top;
+	width: 25%;
+}
+
+#show_products {
+	/*border: 1px solid black;*/
+	box-sizing:border-box;
+	display: inline-block;
+	vertical-align: top;
+	width: 75%;
+}
+
+div[ng-repeat]
+{
+	width:20%;
+	box-sizing:border-box;
+	padding: 15px;
+	display: inline-block;
+}

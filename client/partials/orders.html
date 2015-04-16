@@ -8,15 +8,9 @@
 		</select>
 
 		<p>Order:
-		<select ng-model="newOrder.quantity">
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-		</select>
+		<input type="number" ng-model="newOrder.quantity">
 		<select ng-model="newOrder.product">
-			<option>Cup</option>
-			<option>Shirt</option>
-			<option>TV</option>
+			<option ng-repeat="product in products">{{product.name}}</option>
 		</select>
 		</p>
 
@@ -34,7 +28,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="order in orders">
+			<tr ng-repeat="order in orders | filter: filter_name">
 				<td>{{order.name}}</td>
 				<td>{{order.product}}</td>
 				<td>{{order.quantity}}</td>

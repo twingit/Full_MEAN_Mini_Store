@@ -1,15 +1,15 @@
-miniStoreApp.controller("customersController", function($scope, customerFactory) {
+miniStoreApp.controller("customersController", function($scope, customersFactory) {
 			
-	customerFactory.getCustomers(function(data) {
+	customersFactory.getCustomers(function(data) {
 		$scope.customers = data;
 	})
 
 	$scope.addCustomer = function() {
 
-		customerFactory.addCustomer($scope.newCustomer, function() {
+		customersFactory.addCustomer($scope.newCustomer, function() {
 
-			console.log('ggggggg', $scope.newCustomer);
-			customerFactory.getCustomers(function(data) {
+			console.log('$scope.newCustomer', $scope.newCustomer);
+			customersFactory.getCustomers(function(data) {
 				$scope.customers = data;
 
 			})
@@ -21,11 +21,11 @@ miniStoreApp.controller("customersController", function($scope, customerFactory)
 
 	$scope.removeCustomer = function(id) {
 
-		customerFactory.removeCustomer(id, function(data) {
+		customersFactory.removeCustomer(id, function(data) {
 
 		})
 
-		customerFactory.getCustomers(function(data) {
+		customersFactory.getCustomers(function(data) {
 				$scope.customers = data;
 		})
 

@@ -2,6 +2,7 @@
 // Need to require mongoose to be able to run mongoose.model()
 var mongoose = require("mongoose");
 var Order = mongoose.model("Order");
+var Product = mongoose.model('Product');
 
 // This is our orders.js file located at /server/controllers/orders.js
 // Note the immediate function and the object that is returned
@@ -25,15 +26,27 @@ module.exports = (function() {
 
 		add: function(req, res) {
 			console.log("ldfldjf", req.body);
-			var order = Order({name: req.body.name, product: req.body.product, quantity: req.body.quantity, date: req.body.date})
+			var order = Order({name: req.body.name, product: req.body.product, quantity: req.body.quantity, date: req.body.date});
 				order.save(function(err, results) {
 					if (err) {
 						console.log(err);
 					}
 					else {
-						res.json(results);
+						Product.findOne({name: req.body.product}, function(err, results2){
+							var quantity_left = results2.quantity - req.body.quantity;
+							// console.log('quantity left', quantity);
+							Product.update({name: req.body.product}, {quantity: quantity_left}, function(err, results3){
+								if(err){
+									console.log(err);
+								}else{
+									res.json(results3);
+								}
+							})
+						})
+						// res.json(results);
 					}
 				})
+
 
 		},
 

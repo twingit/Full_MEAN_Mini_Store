@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-// Create out orderSchema
+// Create our orderSchema
 var orderSchema = new mongoose.Schema({
 	name: String,
 	product: String,

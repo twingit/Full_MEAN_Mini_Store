@@ -1,0 +1,24 @@
+<div ng-controller="productsController">
+	<div id="add_product">
+		<p><input type="text" placeholder="search" ng-model="filter_name"></p>
+	</div>
+		<div ng-repeat="product in products | filter: filter_name">
+			<img ng-src="{{product.image_url}}">
+			<p>{{product.name}}</p>
+			<p>{{product.quantity}}</p>
+		</div>
+	</div>
+</div><div id="show_products">
+	<div ng-controller="ordersController">
+		<h3>Recent Order</h3>
+		<div ng-repeat="order in orders | filter: filter_name">
+			<p>{{order.name}} purchased {{order.quantity}} copies of {{order.product}}</p>
+		</div>
+	</div>
+	<div ng-controller="customersController">
+		<h3>New Customers</h3>
+		<div ng-repeat="customer in customers | filter: filter_name">
+			<p>{{customer.name}} joined the store on {{customer.date | date:format:LongDate}}</p>
+		</div>
+	</div>
+</div>
