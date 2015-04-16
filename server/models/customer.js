@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 // Create our customerSchema
 var customerSchema = new mongoose.Schema({
 	name: String,
-	date: {type: Date, default: Date.now}
+	date: {type: Date, default: Date.now()}
 });
 
 // Use the schema to create the model

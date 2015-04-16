@@ -7,7 +7,7 @@ var productSchema = new mongoose.Schema({
 	description: String,
 	quantity: Number,
 	// quantity_left: Number,
-	date: {type: Date, default: Date.now}
+	date: {type: Date, default: Date.now()}
 });
 
 // Use the schema to create the model

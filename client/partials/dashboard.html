@@ -1,14 +1,15 @@
 <div ng-controller="productsController">
-	<div id="add_product">
+	<div id="sidebar">
 		<p><input type="text" placeholder="search" ng-model="filter_name"></p>
 	</div>
-		<div ng-repeat="product in products | filter: filter_name">
-			<img ng-src="{{product.image_url}}">
-			<p>{{product.name}}</p>
-			<p>{{product.quantity}}</p>
-		</div>
+</div><div id="main_space" ng-controller="productsController">
+	<div ng-repeat="product in products | filter: filter_name | limitTo: count">
+		<img ng-src="{{product.image_url}}">
+		<p>{{product.name}}</p>
+		<p>{{product.quantity}}</p>
 	</div>
-</div><div id="show_products">
+	<button ng-click="increase()">Show More</button>
+</div>
 	<div ng-controller="ordersController">
 		<h3>Recent Order</h3>
 		<div ng-repeat="order in orders | filter: filter_name">

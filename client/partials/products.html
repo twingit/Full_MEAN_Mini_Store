@@ -1,5 +1,5 @@
 <div ng-controller="productsController">
-	<div id="add_product">
+	<div id="sidebar">
 	<p><input type="text" placeholder="search" ng-model="filter_name"></p>
 	<h3>Add a New Product</h3>
 		<form ng-submit='addProduct()'>
@@ -9,13 +9,13 @@
 			<p>Order: <input type="number" ng-model="newProduct.quantity"></p>
 			<p><input type="submit" value="Add Product"></p>
 		</form>
-	</div><div id="show_products">
+	</div><div id="main_space">
 		<div ng-repeat="product in products | filter: filter_name">
 			<img ng-src="{{product.image_url}}">
-			<p>{{product.name}}</p>
-			<p>{{product.quantity}}</p>
-			<p>{{product.description}}</p>
-			<p><input type="submit" value="Remove" ng-click="removeProduct(product)"></p>
+			<p class="p-mod">{{product.name}}</p>
+			<p class="p-mod">({{product.quantity}} Left)</p>
+			<p class="p-mod">{{product.description}}</p>
+			<p class="p-mod"><input type="submit" value="Remove" ng-click="removeProduct(product)"></p>
 		</div>
 	</div>
 </div>

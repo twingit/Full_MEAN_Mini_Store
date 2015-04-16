@@ -1,5 +1,12 @@
 miniStoreApp.controller("productsController", function($scope, productsFactory, ordersFactory) {
 	
+	var count = 5;
+	$scope.count = count;
+
+	$scope.increase = function() {
+		$scope.count += 5;
+	}
+
 	productsFactory.getProducts(function(data) {
 		$scope.products = data;
 	})

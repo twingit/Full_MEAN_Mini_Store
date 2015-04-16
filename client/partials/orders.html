@@ -28,7 +28,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="order in orders | filter: filter_name">
+			<tr ng-repeat="order in orders | filter: filter_name | orderBy: 'date' - 1">
 				<td>{{order.name}}</td>
 				<td>{{order.product}}</td>
 				<td>{{order.quantity}}</td>

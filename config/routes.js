@@ -52,7 +52,7 @@ module.exports = function(app) {
 	})
 
 	app.get("/products", function(req, res) {
-		console.log('here');
+		
 		products.show(req, res);
 		// So, we are delegating to the controller and passing along req and res.
 	})

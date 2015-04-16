@@ -25,8 +25,13 @@ module.exports = (function() {
 		},
 
 		add: function(req, res) {
-			console.log("ldfldjf", req.body);
+
+			// console.log("ldfldjf", req.body);
+
 			var order = Order({name: req.body.name, product: req.body.product, quantity: req.body.quantity, date: req.body.date});
+
+				// Validation code here...
+
 				order.save(function(err, results) {
 					if (err) {
 						console.log(err);
@@ -43,7 +48,7 @@ module.exports = (function() {
 								}
 							})
 						})
-						// res.json(results);
+						
 					}
 				})
 
